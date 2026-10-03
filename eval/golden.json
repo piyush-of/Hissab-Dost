@@ -1,0 +1,141 @@
+[
+  {
+    "input": "chai 20, auto 60, mess 3500",
+    "source": "text",
+    "expected": [
+      { "amount": 20, "category": "chai_snacks", "days_ago": 0 },
+      { "amount": 60, "category": "transport", "days_ago": 0 },
+      { "amount": 3500, "category": "rent_mess", "days_ago": 0 }
+    ]
+  },
+  {
+    "input": "kal maggi 40 aur parso recharge 239",
+    "source": "text",
+    "expected": [
+      { "amount": 40, "category": "chai_snacks", "days_ago": 1 },
+      { "amount": 239, "category": "recharge_bills", "days_ago": 2 }
+    ]
+  },
+  {
+    "input": "rohit ko 500 udhaar diye",
+    "source": "text",
+    "expected": [
+      { "amount": 500, "category": "lent_money", "days_ago": 0 }
+    ]
+  },
+  {
+    "input": "canteen lunch 80 and auto 40",
+    "source": "text",
+    "expected": [
+      { "amount": 80, "category": "food", "days_ago": 0 },
+      { "amount": 40, "category": "transport", "days_ago": 0 }
+    ]
+  },
+  {
+    "input": "shopping kurti 1.5k",
+    "source": "text",
+    "expected": [
+      { "amount": 1500, "category": "shopping", "days_ago": 0 }
+    ]
+  },
+  {
+    "input": "stationery xerox 45rs",
+    "source": "text",
+    "expected": [
+      { "amount": 45, "category": "education", "days_ago": 0 }
+    ]
+  },
+  {
+    "input": "kal movie ticket ₹250 liya",
+    "source": "text",
+    "expected": [
+      { "amount": 250, "category": "entertainment", "days_ago": 1 }
+    ]
+  },
+  {
+    "input": "parso paracetamol medicine 65",
+    "source": "text",
+    "expected": [
+      { "amount": 65, "category": "health", "days_ago": 2 }
+    ]
+  },
+  {
+    "input": "autoo 60, maggie 40",
+    "source": "text",
+    "expected": [
+      { "amount": 60, "category": "transport", "days_ago": 0 },
+      { "amount": 40, "category": "chai_snacks", "days_ago": 0 }
+    ]
+  },
+  {
+    "input": "hostel room rent 2 hazaar",
+    "source": "text",
+    "expected": [
+      { "amount": 2000, "category": "rent_mess", "days_ago": 0 }
+    ]
+  },
+  {
+    "input": "yesterday cafe cold coffee 120",
+    "source": "text",
+    "expected": [
+      { "amount": 120, "category": "chai_snacks", "days_ago": 1 }
+    ]
+  },
+  {
+    "input": "samosa chai kharcha 35",
+    "source": "text",
+    "expected": [
+      { "amount": 35, "category": "chai_snacks", "days_ago": 0 }
+    ]
+  },
+  {
+    "input": "metro card recharge 200",
+    "source": "text",
+    "expected": [
+      { "amount": 200, "category": "transport", "days_ago": 0 }
+    ]
+  },
+  {
+    "input": "sneha ko book ke liye 300 diye",
+    "source": "text",
+    "expected": [
+      { "amount": 300, "category": "lent_money", "days_ago": 0 }
+    ]
+  },
+  {
+    "input": "Dear Customer, A/C ending 4091 debited by Rs.150.00 on 03-Oct-26 at SWIGGY UPI ref 938210.",
+    "source": "sms",
+    "expected": [
+      { "amount": 150, "category": "food", "days_ago": 0 }
+    ]
+  },
+  {
+    "input": "Paid Rs.30.00 to Sharma Chai Point via PhonePe on 04 Oct 2026. Txn ID T26100412.",
+    "source": "sms",
+    "expected": [
+      { "amount": 30, "category": "chai_snacks", "days_ago": 0 }
+    ]
+  },
+  {
+    "input": "INR 450.00 debited from A/C XX7812 on 04-10-26 towards UBER INDIA. Avail Bal: Rs.4200.00",
+    "source": "sms",
+    "expected": [
+      { "amount": 450, "category": "transport", "days_ago": 0 }
+    ]
+  },
+  {
+    "input": "Your OTP for login to NetBanking is 482910. Do not share this OTP with anyone.",
+    "source": "sms",
+    "expected": []
+  },
+  {
+    "input": "Rs. 5000.00 credited to your A/C XX4091 by UPI/Piyush. Avail Bal: Rs. 8450.00",
+    "source": "sms",
+    "expected": []
+  },
+  {
+    "input": "Just a reminder: please bring your college id card tomorrow",
+    "source": "text",
+    "expected": []
+  }
+]
