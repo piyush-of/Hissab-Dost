@@ -24,8 +24,8 @@ Priya is a college student living in a hostel on a monthly family allowance. She
 
 ```bash
 # 1. Clone repository
-git clone https://github.com/piyush/hisaab-dost.git
-cd hisaab-dost
+git clone https://github.com/piyush/Hisaab-Dost.git
+cd Hisaab-Dost
 
 # 2. Install dependencies
 npm install
