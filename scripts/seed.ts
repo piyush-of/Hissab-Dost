@@ -1,4 +1,5 @@
 import { addExpenses, getExpenses } from "../src/lib/db";
+import { toLocalISODate } from "../src/lib/dates";
 
 function seed() {
   const existing = getExpenses();
@@ -13,7 +14,7 @@ function seed() {
   const getDate = (daysAgo: number) => {
     const d = new Date(today);
     d.setDate(d.getDate() - daysAgo);
-    return d.toISOString().split("T")[0];
+    return toLocalISODate(d);
   };
 
   const sampleData = [

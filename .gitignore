@@ -47,3 +47,15 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# stray git files that ended up in docs/
+docs/hooks/
+docs/objects/
+docs/refs/
+docs/logs/
+docs/info/
+docs/config
+docs/description
+docs/HEAD
+docs/index
+docs/COMMIT_EDITMSG

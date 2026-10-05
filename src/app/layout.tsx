@@ -18,7 +18,7 @@ export default function RootLayout({
         <header className="sticky top-0 z-50 border-b border-slate-800 bg-slate-900/80 backdrop-blur-md">
           <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 via-orange-500 to-rose-500 flex items-center justify-center text-xl shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
+              <div className="w-10 h-10 rounded-xl bg-linear-to-tr from-amber-500 via-orange-500 to-rose-500 flex items-center justify-center text-xl shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
                 ☕
               </div>
               <div>
@@ -41,7 +41,7 @@ export default function RootLayout({
               </Link>
               <Link
                 href="/add"
-                className="px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 font-semibold hover:from-amber-400 hover:to-orange-400 transition shadow-sm flex items-center gap-1.5"
+                className="px-3.5 py-1.5 rounded-lg bg-linear-to-r from-amber-500 to-orange-500 text-slate-950 font-semibold hover:from-amber-400 hover:to-orange-400 transition shadow-sm flex items-center gap-1.5"
               >
                 <span>+</span> Quick Add
               </Link>

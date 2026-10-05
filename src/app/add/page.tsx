@@ -245,7 +245,7 @@ export default function AddPage() {
             <button
               key={idx}
               onClick={() => setInputText(chip)}
-              className="text-[11px] px-2 py-0.5 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700/60 transition truncate max-w-[220px]"
+              className="text-[11px] px-2 py-0.5 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700/60 transition truncate max-w-55"
             >
               {chip}
             </button>
