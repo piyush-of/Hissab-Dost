@@ -2,7 +2,7 @@
 
 > **A private, offline expense companion for hostel students. Built for Priya.**
 > Powered by **Google Gemma** running locally through **Ollama**, with **Next.js** and **SQLite**.
-> No cloud AI API. No analytics. Your expenses stay on your laptop.
+> No cloud AI API, no analytics, no accounts. Your expenses stay on your laptop.
 
 *(The GitHub repository is named `Hissab-Dost`; the app is called Hisaab Dost.)*
 
@@ -124,7 +124,7 @@ Messy text / SMS (or voice via the browser)
 1. **The LLM parses and phrases; code does the math.** Small language models are unreliable at arithmetic, so totals, percentages and runway are computed in code.
 2. **Preview before save.** Raw LLM output is never written to the database without the user confirming it.
 3. **Relative dates (`days_ago`).** Small models get calendar dates wrong, so the model extracts `0` (today), `1` (kal), `2` (parso), and code turns that into a real date.
-4. **No telemetry.** No analytics or tracking is included.
+4. **No telemetry.** No analytics in the app, and `npm run dev` / `build` turn off Next.js telemetry automatically.
 
 ---
 
@@ -144,10 +144,11 @@ npm run eval
 | Row match recall | **21 / 22 (95%)** |
 | Average latency | ~74 s per parse |
 
-**Known limitations:**
+**Known limitations (from the real run):**
 
-- Latency on a laptop with 12B was high (average ~74 s; the first call was slowest), and two cases hit the request timeout. The smaller `gemma4:e4b` model is the recommended option for low-spec machines.
-- One test input using the English word "yesterday" (rather than "kal") failed on the date; relative-date handling for English words is the next thing to improve.
+- **Speed:** on a student laptop the 12B model averaged ~74 s per parse, the first call took 213 s (model loading), and one case hit the 120 s x 2 request timeout. The app now keeps the model loaded (`keep_alive`), and the smaller `gemma4:e4b` is recommended for low-spec machines.
+- **Case 11** (`yesterday cafe cold coffee 120`) failed because the model labelled it `food` where the golden set expects `chai_snacks` (amount and date were right). That is a category judgement call, not a parsing error.
+- **Case 20** (a non-expense reminder that must return nothing) failed only because of the timeout above.
 
 Full per-case output is written to `docs/EVAL_RESULTS.md` each time you run the eval.
 

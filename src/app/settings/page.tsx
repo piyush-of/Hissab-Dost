@@ -187,7 +187,7 @@ export default function SettingsPage() {
           </div>
           <div className="flex items-center justify-between py-1">
             <span>External Network Calls:</span>
-            <span className="font-mono text-emerald-400 font-bold">0 calls (100% offline)</span>
+            <span className="font-mono text-emerald-400 font-bold">0 (local Ollama only)</span>
           </div>
         </div>
       </div>

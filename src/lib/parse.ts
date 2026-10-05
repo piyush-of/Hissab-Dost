@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { CATEGORIES, Category } from "./categories";
 import { chatJSON } from "./ollama";
+import { toLocalISODate } from "./dates";
 import {
   EXPENSE_JSON_SCHEMA,
   SYSTEM_PROMPT_TEXT,
@@ -36,7 +37,7 @@ export interface ParsedExpense {
 export function daysAgoToDate(daysAgo: number, baseDate = new Date()): string {
   const d = new Date(baseDate);
   d.setDate(d.getDate() - Math.max(0, daysAgo));
-  return d.toISOString().split("T")[0];
+  return toLocalISODate(d);
 }
 
 export async function parseExpenses(

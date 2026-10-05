@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { toLocalISODate } from "@/lib/dates";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { CATEGORIES, CATEGORY_MAP, Category } from "@/lib/categories";
@@ -213,6 +214,7 @@ export default function AddPage() {
           {speechSupported && source === "text" && (
             <button
               onClick={toggleSpeech}
+              title="Voice uses your browser's speech service, which may need internet. Typing and pasting are fully local."
               className={`text-xs px-2.5 py-1 rounded-md border flex items-center gap-1.5 transition ${
                 isListening
                   ? "bg-rose-500/20 text-rose-300 border-rose-500/40 animate-pulse"
@@ -307,7 +309,7 @@ export default function AddPage() {
                     amount: 0,
                     item: "New Item",
                     category: "other",
-                    spent_on: new Date().toISOString().split("T")[0],
+                    spent_on: toLocalISODate(),
                     days_ago: 0,
                     needs_review: true,
                   },

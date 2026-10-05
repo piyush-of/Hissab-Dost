@@ -25,8 +25,10 @@ export async function checkOllamaStatus(requestedModel?: string): Promise<Ollama
     }
     const data = await res.json();
     const models: string[] = (data.models || []).map((m: { name: string }) => m.name);
+    // Exact match, or the untagged name matching ":latest" (e.g. "gemma4" -> "gemma4:latest").
+    // Do NOT loosely match by family: having gemma4:e4b pulled does not mean gemma4:12b is available.
     const hasModel = models.some(
-      (m) => m === modelToUse || m.startsWith(modelToUse) || modelToUse.startsWith(m.split(":")[0])
+      (m) => m === modelToUse || (!modelToUse.includes(":") && m === `${modelToUse}:latest`)
     );
 
     return {
@@ -77,6 +79,8 @@ export async function chatJSON<T>(
     model,
     messages,
     stream: false,
+    // Keep the model in memory between parses so only the first one pays the load time.
+    keep_alive: "30m",
     options: {
       temperature,
     },

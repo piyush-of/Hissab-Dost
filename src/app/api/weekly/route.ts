@@ -1,9 +1,9 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { getMonthSummary } from "@/lib/summary";
 import { getSetting } from "@/lib/db";
 import { buildWeeklySummaryPrompt } from "@/lib/prompts";
 
-export async function POST(req: NextRequest) {
+export async function POST() {
   try {
     const summary = getMonthSummary();
     const tone = getSetting("tone", "friendly");
@@ -42,9 +42,10 @@ export async function POST(req: NextRequest) {
           { role: "user", content: "Mujhe iss week ka summary aur friendly advice do." },
         ],
         stream: false,
+        keep_alive: "30m",
         options: { temperature: 0.3 },
       }),
-      signal: AbortSignal.timeout(60000),
+      signal: AbortSignal.timeout(180000),
     });
 
     if (!res.ok) {

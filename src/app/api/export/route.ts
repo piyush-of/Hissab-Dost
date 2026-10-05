@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getExpenses } from "@/lib/db";
+import { toLocalISODate } from "@/lib/dates";
 
 export async function GET() {
   try {
@@ -32,7 +33,7 @@ export async function GET() {
 
     const csvContent = [headers.join(","), ...rows.map((r) => r.join(","))].join("\n");
 
-    const today = new Date().toISOString().split("T")[0];
+    const today = toLocalISODate();
     const filename = `hisaab-dost-expenses-${today}.csv`;
 
     return new NextResponse(csvContent, {

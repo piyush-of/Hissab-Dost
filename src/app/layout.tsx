@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Hisaab Dost (हिसाब दोस्त) — Local & Private Expense Companion",
-  description: "Offline-first expense tracking powered by Gemma on Ollama. Your messy Hinglish and UPI SMS turned into clean records without any cloud sync.",
+  description: "Local-first expense tracking powered by Gemma on Ollama. Your messy Hinglish and UPI SMS turned into clean records without any cloud AI or sync.",
 };
 
 export default function RootLayout({
@@ -58,7 +58,7 @@ export default function RootLayout({
         <div className="bg-emerald-950/40 border-b border-emerald-900/50 py-1.5 px-4 text-center text-xs text-emerald-300 flex items-center justify-center gap-2">
           <span className="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
           <span>
-            <strong>100% Offline &amp; Private:</strong> Data stays in local SQLite. All parsing runs on local Gemma via Ollama. 0 cloud calls.
+            <strong>Private &amp; local:</strong> Data stays in local SQLite. All parsing runs on local Gemma via Ollama. No cloud AI, no analytics. (Voice input uses your browser&apos;s speech service.)
           </span>
         </div>
 
